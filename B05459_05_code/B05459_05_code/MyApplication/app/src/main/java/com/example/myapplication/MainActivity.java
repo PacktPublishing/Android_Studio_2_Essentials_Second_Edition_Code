@@ -1,0 +1,40 @@
+package com.example.myapplication;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        if (savedInstanceState != null) {
+            System.out.println("savedInstanceState = " + savedInstanceState);
+        }
+
+        // Alternative way to onAcceptClick method
+        //Button b_accept = (Button) findViewById(R.id.button_accept);
+        //b_accept.setOnClickListener(this);
+    }
+
+    public void onAcceptClick(View v) {
+        TextView tvGreeting = (TextView) findViewById(R.id.textView_greeting);
+        EditText etName = (EditText) findViewById(R.id.editText_name);
+
+        if (etName.getText() != null && 0 < etName.getText().length()) {
+            tvGreeting.setText("Hello " + etName.getText());
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        // Action when the button is pressed
+    }
+
+}
